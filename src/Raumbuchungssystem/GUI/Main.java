@@ -6,6 +6,7 @@ import src.Raumbuchungssystem.Logik.IRaumManager;
 import src.Raumbuchungssystem.Logik.RaumManager;
 import src.Raumbuchungssystem.Objekte.Raum;
 
+import javax.swing.*;
 import java.util.Set;
 
 public class Main {
@@ -14,7 +15,7 @@ public class Main {
 
         Set<Raum> raeume = raumManager.listeAlleRaeume();
 
-
+        System.out.println(raeume);
 
     }
 }
