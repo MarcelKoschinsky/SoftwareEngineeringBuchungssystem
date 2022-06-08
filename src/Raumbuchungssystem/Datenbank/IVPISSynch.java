@@ -8,10 +8,9 @@ import java.util.Set;
 // Interface für die VPIS Synchronisierung
 public interface IVPISSynch {
 
+    //system.out.println.(testeUebergabe);
 
-
-    public Set<Raum> ladeBelegteRaeume();
-
+    //public Set<Raum> ladeBelegteRaeume();
 
 
 }
