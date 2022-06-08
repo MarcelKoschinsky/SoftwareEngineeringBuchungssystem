@@ -4,7 +4,7 @@ public class Raum {
 
     private int raumNr;
     private String raumArt;
-    private boolean[][] Kalender;
+    public boolean[][] kalender;
 
     public Raum (int raumNr, String raumArt) {
         this.raumNr=raumNr;
