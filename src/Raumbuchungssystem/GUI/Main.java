@@ -13,9 +13,9 @@ public class Main {
     public static void main (String[]args) {
         IRaumManager raumManager = new RaumManager();   //neuen RaumManager erstellt
 
-        Set<Raum> raeume = raumManager.listeAlleRaeume();
+        Set<Raum> raeume = raumManager.listeAlleRaeume();//erstelle eine liste aller Raeume
 
-        System.out.println(raeume);
+        System.out.println(raeume);     //gib die Raeume auf der Konsole aus
 
     }
 }
