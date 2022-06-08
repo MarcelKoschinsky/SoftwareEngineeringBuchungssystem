@@ -11,9 +11,7 @@ public class Raum {
         this.raumArt=raumArt;
     }
 
-    public void setRaumNr(int raumNr) {
-        this.raumNr = raumNr;
-    }
+    public void setRaumNr(int raumNr) { this.raumNr = raumNr; }
 
     public int getRaumNr() {
         return raumNr;
