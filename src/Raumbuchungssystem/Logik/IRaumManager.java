@@ -1,5 +1,7 @@
 package src.Raumbuchungssystem.Logik;
 
+import src.Raumbuchungssystem.Objekte.Raum;
+
 import java.util.Set;
 
 //@author Janik Lüttringhaus
