@@ -9,6 +9,9 @@ import src.Raumbuchungssystem.Objekte.Raum;
 import java.util.Set;
 
 public class Main {
+
+    IRaumManager raumManager = new RaumManager();   //neuen RaumManager erstellt
+
     public static void main (String[]args) {
         IRaumManager raumManager = new RaumManager();   //neuen RaumManager erstellt
 
