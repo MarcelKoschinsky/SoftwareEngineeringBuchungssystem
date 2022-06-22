@@ -21,7 +21,7 @@ public class RaumManager implements IRaumManager{
     }
 
     @Override
-    public Set<Raum> listeFreieRaeume() {
+    public Set<Raum> listeFreieRaeume(int uhrzeit, int wochentag) {
         return null;
     }
 

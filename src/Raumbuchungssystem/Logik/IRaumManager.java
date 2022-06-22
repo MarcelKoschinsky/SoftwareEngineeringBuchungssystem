@@ -12,7 +12,7 @@ import java.util.Set;
 public interface IRaumManager {
     public Set<Raum> listeAlleRaeume();
 
-    public Set<Raum> listeFreieRaeume();
+    public Set<Raum> listeFreieRaeume(int uhrzeit, int wochentag);
 
     public void bucheRaum(Raum raum, int uhrzeit, int wochentag, User user);
 
