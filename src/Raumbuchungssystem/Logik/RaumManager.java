@@ -1,3 +1,7 @@
+/**
+ * @author Janik Lüttringhaus
+ */
+
 package src.Raumbuchungssystem.Logik;
 
 import src.Raumbuchungssystem.Objekte.Raum;

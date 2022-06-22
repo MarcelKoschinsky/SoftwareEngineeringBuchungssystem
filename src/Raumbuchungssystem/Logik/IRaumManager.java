@@ -1,18 +1,20 @@
+/**
+ * @author Janik Lüttringhaus
+ */
 package src.Raumbuchungssystem.Logik;
 
 import src.Raumbuchungssystem.Objekte.Raum;
 
 import java.util.Set;
 
-//@author Janik Lüttringhaus
 
 public interface IRaumManager {
-    Set<Raum> listeAlleRaeume();
+    public Set<Raum> listeAlleRaeume();
 
-    Set<Raum> listeFreieRaeume();
+    public Set<Raum> listeFreieRaeume();
 
-    void bucheRaum(Raum raum, int uhrzeit, int wochentag);
+    public void bucheRaum(Raum raum, int uhrzeit, int wochentag, User );
 
-    void storniereRaum(Raum raum, int uhrzeit, int wochentag);
+    public void storniereRaum(Raum raum, int uhrzeit, int wochentag);
 }
 

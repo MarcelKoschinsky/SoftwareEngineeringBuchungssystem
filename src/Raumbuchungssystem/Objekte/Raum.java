@@ -1,10 +1,14 @@
+/**
+ * @author Janik Lüttringhaus
+ */
+
 package src.Raumbuchungssystem.Objekte;
 
 public class Raum {
 
     private int raumNr;
     private String raumArt;
-    public boolean[][] kalender;
+    public boolean[][] kalender=new boolean[20][6];
 
     public Raum (int raumNr, String raumArt) {
         this.raumNr=raumNr;
