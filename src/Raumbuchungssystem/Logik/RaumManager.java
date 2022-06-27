@@ -1,11 +1,12 @@
 /**
+ * Der RaumManager verwaltet die Räume
+ *
  * @author Janik Lüttringhaus
  */
 
 package src.Raumbuchungssystem.Logik;
 
 import src.Raumbuchungssystem.Objekte.Raum;
-import src.Raumbuchungssystem.Objekte.User;
 
 import java.util.Set;
 
@@ -27,7 +28,7 @@ public class RaumManager implements IRaumManager{
 
     @Override
     public void bucheRaum(Raum raum, int uhrzeit, int wochentag, String name) {
-       raum.kalender[uhrzeit][wochentag]=name;
+       raum.setBuchung(uhrzeit, wochentag, name);
     }
 
     @Override
