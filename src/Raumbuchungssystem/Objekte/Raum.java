@@ -52,8 +52,8 @@ public class Raum {
     /**
      * Dem Kalender wird eine Buchung hinzugefügt.
      *
-     * @param uhrzeit Uhrzeit im Format 0-17
-     * @param wochentag Wochentag im Format 0-6
+     * @param uhrzeit Uhrzeit im Format 0-17 (siehe ReadMe)
+     * @param wochentag Wochentag im Format 0-6 (siehe ReadMe)
      * @param name Name der buchenden Person
      */
     public void setBuchung(int uhrzeit, int wochentag, String name) {
