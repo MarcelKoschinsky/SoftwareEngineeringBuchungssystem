@@ -1,11 +1,10 @@
+package src.Raumbuchungssystem.Objekte;
+
 /**
  * Ein Raum als Objekt
  *
  * @author Janik Lüttringhaus
  */
-
-package src.Raumbuchungssystem.Objekte;
-
 public class Raum {
 
     /**
@@ -51,7 +50,7 @@ public class Raum {
     }
 
     /**
-     * Dem Kalender eine Buchung hinzufügen
+     * Dem Kalender wird eine Buchung hinzugefügt.
      *
      * @param uhrzeit Uhrzeit im Format 0-17
      * @param wochentag Wochentag im Format 0-6
@@ -62,11 +61,11 @@ public class Raum {
     }
 
     /**
-     * Buchungsstatus zu bestimmter Zeit abfragen
+     * Gibt den Buchungsstatus zu einer bestimmten Zeit zurück.
      *
-     * @param uhrzeit Uhrzeit im Format 0-17
-     * @param wochentag Wochentag im Format 0-6
-     * @return Wenn gebucht: Name der Person, des Moduls, o.ä.; Wenn nicht gebucht: Hinweis, noch frei
+     * @param uhrzeit Uhrzeit im Format 0-17 (siehe ReadMe)
+     * @param wochentag Wochentag im Format 0-6 (siehe ReadMe)
+     * @return Wenn gebucht: Name der Person, des Moduls, o.ä. <p> Wenn nicht gebucht: Hinweis, noch frei
      */
     public String getBuchung(int uhrzeit, int wochentag) {
         if (kalender[uhrzeit][wochentag] != null) {
