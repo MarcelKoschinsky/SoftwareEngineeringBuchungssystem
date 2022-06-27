@@ -26,12 +26,13 @@ public class RaumManager implements IRaumManager{
     }
 
     @Override
-    public void bucheRaum(Raum raum, int uhrzeit, int wochentag, User user) {
-       raum.kalender[uhrzeit][wochentag]=true;
+    public void bucheRaum(Raum raum, int uhrzeit, int wochentag, String name) {
+       raum.kalender[uhrzeit][wochentag]=name;
     }
 
     @Override
     public void storniereRaum(Raum raum, int uhrzeit, int wochentag) {
-
+        raum.kalender[uhrzeit][wochentag]=null;
     }
+
 }
