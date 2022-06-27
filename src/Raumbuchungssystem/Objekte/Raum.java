@@ -1,4 +1,6 @@
 /**
+ * Ein Raum als Objekt
+ *
  * @author Janik Lüttringhaus
  */
 
@@ -6,10 +8,29 @@ package src.Raumbuchungssystem.Objekte;
 
 public class Raum {
 
+    /**
+     * Die Raumnummer
+     */
     private int raumNr;
+    /**
+     * Die Art des Raumes, z.B. Hörsaal, Seminarraum, Labor, etc.
+     */
     private String raumArt;
+    /**
+     * Der Kalender speichert die Belegung des Raumes.
+     * Zunächst in Form eines Strings.
+     * <p>
+     * Die erste Dimension des Arrays stellt hierbei einen 30min-Block dar.
+     * Bsp.: 0 = 08.00-08.30
+     *       7 = 11.30-12.00
+     */
     public String[][] kalender=new String[18][7];
 
+    /**
+     * Konstruktor
+     * @param raumNr Raumnummer
+     * @param raumArt Art des Raumes
+     */
     public Raum (int raumNr, String raumArt) {
         this.raumNr=raumNr;
         this.raumArt=raumArt;
@@ -29,5 +50,30 @@ public class Raum {
         return raumArt;
     }
 
-    public String getReservation() {return null;}
+    /**
+     * Dem Kalender eine Buchung hinzufügen
+     *
+     * @param uhrzeit Uhrzeit im Format 0-17
+     * @param wochentag Wochentag im Format 0-6
+     * @param name Name der buchenden Person
+     */
+    public void setBuchung(int uhrzeit, int wochentag, String name) {
+        this.kalender[uhrzeit][wochentag]=name;
+    }
+
+    /**
+     * Buchungsstatus zu bestimmter Zeit abfragen
+     *
+     * @param uhrzeit Uhrzeit im Format 0-17
+     * @param wochentag Wochentag im Format 0-6
+     * @return Wenn gebucht: Name der Person, des Moduls, o.ä.; Wenn nicht gebucht: Hinweis, noch frei
+     */
+    public String getBuchung(int uhrzeit, int wochentag) {
+        if (kalender[uhrzeit][wochentag] != null) {
+            return kalender[uhrzeit][wochentag];
+        } else {
+            return "Zu dieser Zeit gibt es noch keine Buchung";
+        }
+    }
 }
+
