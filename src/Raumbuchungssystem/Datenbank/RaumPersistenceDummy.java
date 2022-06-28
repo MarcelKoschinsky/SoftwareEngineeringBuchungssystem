@@ -14,13 +14,18 @@ public class RaumPersistenceDummy {
 
     //static Set<Raum> raumset = new HashSet<>();
 
-
+    /**
+     * Generiert 3 Räume und gibt diese als HashSet zurück
+     *
+     * @return 3 Platzhalter-Räume
+     */
     public static Set<Raum> ladeRaeume() {
         Set<Raum> raumset = new HashSet<>();
 
-        Raum raum101=new Raum(101,"Seminarraum");
-        Raum raum102=new Raum(102,"Seminarraum");
-        Raum raum103=new Raum(103,"Seminarraum");
+        Raum raum101 = new Raum(101, "Seminarraum");
+        Raum raum102 = new Raum(102, "Seminarraum");
+        Raum raum103 = new Raum(103, "Seminarraum");
+        raum103.setBuchung(0, 0, "Janik");
 
         raumset.add(raum101);
         raumset.add(raum102);
@@ -28,35 +33,4 @@ public class RaumPersistenceDummy {
 
         return raumset;
     }
-
-/*
-    public static void speichereRaeume(Set<Raum> raeume) {
-        raumset=raeume;
-    }*/
-
 }
-
-/*
-
-    int uhrzeit = ;
-    int tag;
-
-    int[][] kalender = {
-            {0, 2, 2, 4, 4, 2, 2, 4, 2, 2, 2, 2, 4, 2, 4, 2, 2, 2},
-            {1, 2, 2, 4, 4, 2, 2, 4, 2, 2, 2, 2, 4, 2, 4, 2, 2, 2},
-            {2, 2, 2, 4, 4, 2, 2, 4, 2, 2, 2, 2, 4, 2, 4, 2, 2, 2},
-            {3, 2, 2, 4, 4, 2, 2, 4, 2, 2, 2, 2, 4, 2, 4, 2, 2, 2},
-            {4, 2, 2, 4, 4, 2, 2, 4, 2, 2, 2, 2, 4, 2, 4, 2, 2, 2},
-            {5, 2, 2, 4, 4, 2, 2, 4, 2, 2, 2, 2, 4, 2, 4, 2, 2, 2},
-            {6, 2, 2, 4, 4, 2, 2, 4, 2, 2, 2, 2, 4, 2, 4, 2, 2, 2},
-
-
-    };
-
- if (kalender [tag][uhrzeit] = 2) {
-         System.out.println("Der Termin ist frei!");
-         } else {
-         System.out.println("Der Termin ist leider besetzt");
-         }
-
-*/
