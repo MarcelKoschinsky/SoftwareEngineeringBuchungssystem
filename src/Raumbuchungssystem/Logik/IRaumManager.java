@@ -2,7 +2,6 @@
 package src.Raumbuchungssystem.Logik;
 
 import src.Raumbuchungssystem.Objekte.Raum;
-import src.Raumbuchungssystem.Objekte.User;
 
 import java.util.Set;
 

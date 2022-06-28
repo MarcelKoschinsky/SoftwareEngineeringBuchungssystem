@@ -44,6 +44,9 @@ public class RaumManager implements IRaumManager {
     }
 
     /**
+     * Ein Raum wird zu einem bestimmten Zeitpunkt gebucht.
+     * Über die Konsole wird dieser Buchungsvorgang bestätigt, oder mit einer Fehlermeldung abgebrochen.
+     *
      * @param raumNr    Die Raumnummer
      * @param uhrzeit   Uhrzeit im Format 0-17 (siehe ReadMe)
      * @param wochentag Wochentag im Format 0-6 (siehe ReadMe)
@@ -66,7 +69,10 @@ public class RaumManager implements IRaumManager {
     }
 
     /**
-     * @param raumNr
+     * Eine Raumbuchung wird storniert.
+     * Über die Konsole wird diese Stornierung bestätigt, oder mit einer Fehlermeldung abgebrochen.
+     *
+     * @param raumNr Die Raumnummer
      * @param uhrzeit   Uhrzeit im Format 0-17 (siehe ReadMe)
      * @param wochentag Wochentag im Format 0-6 (siehe ReadMe)
      */
