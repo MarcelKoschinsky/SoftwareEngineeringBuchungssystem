@@ -1,6 +1,10 @@
 package src.Raumbuchungssystem.GUI;
 
-//Author Murat Dursun
+/*
+UI des Raumbuchungssystems
+Nimmt Nutzereingaben und gibt sie an bucheRaum weiter
+@Author Murat Dursun
+ */
 
 import src.Raumbuchungssystem.Logik.IRaumManager;
 import src.Raumbuchungssystem.Logik.RaumManager;
