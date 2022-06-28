@@ -27,16 +27,18 @@ public class Main {
         String name = sc.nextLine();
 
         System.out.println("Bitte geben Sie Ihre gewuenschte RaumNr ein: ");
-        String raumNr = sc.nextLine();
+        String raumNrString = sc.nextLine();
+        int raumNr = Integer.parseInt(raumNrString);
 
         System.out.println("Bitte geben Sie Ihren gewuenschten Wochentag ein: ");
-        String wochentag = sc.nextLine();
+        String wochentagString = sc.nextLine();
+        int wochentag = Integer.parseInt(wochentagString);
 
         System.out.println("Bitte geben Sie Ihre gewuenschte Uhrzeit ein: ");
-        String uhrzeit = sc.nextLine();
+        String uhrzeitString = sc.nextLine();
+        int uhrzeit = Integer.parseInt(uhrzeitString);
 
-        //System.out.println(name);
-
+        raumManager.bucheRaum(raumNr, uhrzeit, wochentag, name);
 
     }
 }
