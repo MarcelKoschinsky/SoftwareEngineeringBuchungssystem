@@ -13,29 +13,28 @@ import java.util.Set;
  */
 public class RaumManager implements IRaumManager {
 
-        /**
-         *
-         * @return Alle Räume
-         */
+    /**
+     * @return Alle Räume
+     */
     @Override
     public Set<Raum> listeAlleRaeume() {
         return RaumPersistenceDummy.ladeRaeume();
     }
 
-        /**
-         * Gibt alle freien Räume als HashSet zurück.
-         *
-         * @param uhrzeit Uhrzeit im Format 0-17 (siehe ReadMe)
-         * @param wochentag Wochentag im Format 0-6 (siehe ReadMe)
-         * @return Alle freien Räume als HashSet
-         */
+    /**
+     * Gibt alle freien Räume als HashSet zurück.
+     *
+     * @param uhrzeit   Uhrzeit im Format 0-17 (siehe ReadMe)
+     * @param wochentag Wochentag im Format 0-6 (siehe ReadMe)
+     * @return Alle freien Räume als HashSet
+     */
     @Override
     public Set<Raum> listeFreieRaeume(int uhrzeit, int wochentag) {
-        Set<Raum> temp=RaumPersistenceDummy.ladeRaeume();
-        Set<Raum> ausgabe= new HashSet<>();
+        Set<Raum> temp = RaumPersistenceDummy.ladeRaeume();
+        Set<Raum> ausgabe = new HashSet<>();
 
-        for (Raum x:temp) {
-            if (x.kalender[uhrzeit][wochentag]==null) {
+        for (Raum x : temp) {
+            if (x.kalender[uhrzeit][wochentag] == null) {
                 ausgabe.add(x);
             }
         }
@@ -44,27 +43,47 @@ public class RaumManager implements IRaumManager {
         return ausgabe;
     }
 
-        /**
-         *
-         * @param raum
-         * @param uhrzeit Uhrzeit im Format 0-17 (siehe ReadMe)
-         * @param wochentag Wochentag im Format 0-6 (siehe ReadMe)
-         * @param name Name der buchenden Person
-         */
+    /**
+     * @param raumNr    Die Raumnummer
+     * @param uhrzeit   Uhrzeit im Format 0-17 (siehe ReadMe)
+     * @param wochentag Wochentag im Format 0-6 (siehe ReadMe)
+     * @param name      Name der buchenden Person
+     */
     @Override
-    public void bucheRaum(Raum raum, int uhrzeit, int wochentag, String name) {
-       raum.setBuchung(uhrzeit, wochentag, name);
+    public void bucheRaum(int raumNr, int uhrzeit, int wochentag, String name) {
+        Set<Raum> temp = RaumPersistenceDummy.ladeRaeume();
+
+        for (Raum x : temp) {
+            if (x.getRaumNr() == raumNr) {
+                if (x.kalender[uhrzeit][wochentag] == null) {
+                    x.setBuchung(uhrzeit, wochentag, name);
+                    System.out.println("Der gewünschte Termin wurde von dir gebucht.");
+                } else {
+                    System.out.println("Der gewünschte Termin ist bereits vergeben.");
+                }
+            }
+        }
     }
 
-        /**
-         *
-         * @param raum
-         * @param uhrzeit Uhrzeit im Format 0-17 (siehe ReadMe)
-         * @param wochentag Wochentag im Format 0-6 (siehe ReadMe)
-         */
+    /**
+     * @param raumNr
+     * @param uhrzeit   Uhrzeit im Format 0-17 (siehe ReadMe)
+     * @param wochentag Wochentag im Format 0-6 (siehe ReadMe)
+     */
     @Override
-    public void storniereRaum(Raum raum, int uhrzeit, int wochentag) {
-        raum.kalender[uhrzeit][wochentag]=null;
-    }
+    public void storniereRaum(int raumNr, int uhrzeit, int wochentag) {
+        Set<Raum> temp = RaumPersistenceDummy.ladeRaeume();
 
+        for (Raum x : temp) {
+            if (x.getRaumNr() == raumNr) {
+                if (x.kalender[uhrzeit][wochentag] != null) {
+                    x.kalender[uhrzeit][wochentag] = null;
+                    System.out.println("Die Raumbuchung wurde storniert.");
+                } else {
+                    System.out.println("Für diesem Raum gibt es zu diesem Zeitpunkt keine Buchung.");
+                }
+            }
+        }
+
+    }
 }
