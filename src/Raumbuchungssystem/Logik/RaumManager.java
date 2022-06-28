@@ -60,7 +60,7 @@ public class RaumManager implements IRaumManager {
             if (x.getRaumNr() == raumNr) {
                 if (x.kalender[uhrzeit][wochentag] == null) {
                     x.setBuchung(uhrzeit, wochentag, name);
-                    System.out.println("Der gewünschte Termin wurde von dir gebucht.");
+                    System.out.println("Der gewünschte Termin wurde von dir gebucht.\n Raum:"+x.getRaumNr()+" Wochentag: "+wochentag+" Uhrzeit: "+uhrzeit);
                 } else {
                     System.out.println("Der gewünschte Termin ist bereits vergeben.");
                 }
