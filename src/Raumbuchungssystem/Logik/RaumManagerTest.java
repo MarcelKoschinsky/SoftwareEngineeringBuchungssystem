@@ -3,7 +3,8 @@ package src.Raumbuchungssystem.Logik;
 import org.junit.jupiter.api.Test;
 //import src.Raumbuchungssystem.GUI.Main;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+//import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
  * Testklasse für den Raummanager
@@ -16,11 +17,11 @@ public class RaumManagerTest {
 
         @Test
         public void listeRaeumeTest(){
-            assertEquals(null, raumManager.listeAlleRaeume());
+            assertNull(raumManager.listeAlleRaeume());
         }
 
         @Test
         public void bucheRaum(){
-       // assertEquals(null, raumManager.bucheRaum());
+        //assertEquals(null, raumManager.bucheRaum());
     }
 }
