@@ -1,10 +1,15 @@
 package src.Raumbuchungssystem.Logik;
 
 import org.junit.jupiter.api.Test;
+import src.Raumbuchungssystem.Datenbank.RaumPersistenceDummy;
+import src.Raumbuchungssystem.Objekte.Raum;
 //import src.Raumbuchungssystem.GUI.Main;
 
 //import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import java.util.Arrays;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Testklasse für den Raummanager
@@ -21,7 +26,10 @@ public class RaumManagerTest {
         }
 
         @Test
-        public void bucheRaum(){
-        //assertEquals(null, raumManager.bucheRaum());
+        public void bucheRaumTest(){
+        raumManager.bucheRaum(101, 0, 0, "ABC");
+        raumManager.bucheRaum(101, 0, 0, "ABC");
+        String[][] expected = new String[18][7];
+        expected[0][0] = "ABC";
     }
 }
