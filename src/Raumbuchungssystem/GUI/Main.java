@@ -106,11 +106,12 @@ public class Main {
         JButton button1 = new JButton("Anmelden");
         button1.setBounds(10, 170, 100, 25);
         panel.add(button1);
+
         ActionListener actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == button1){
-                    //raumManager.bucheRaum(raumNr, uhrzeit, wochentag, name);
+                   raumManager.bucheRaum(Integer.parseInt(raumNrText.getText()), Integer.parseInt(uhrzeitText.getText()), Integer.parseInt(wochentagText.getText()), userText.getText());
                 }
             }
         };
