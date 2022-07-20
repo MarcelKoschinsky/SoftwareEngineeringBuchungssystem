@@ -14,7 +14,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Set;
 
-public class Main implements ActionListener{
+public class Main implements ActionListener {
 
     IRaumManager raumManager = new RaumManager();   //neuen RaumManager erstellt
 
@@ -29,9 +29,11 @@ public class Main implements ActionListener{
     private static JLabel wochentagLabel;
     private static JTextField wochentagText;
     private static JButton button1;
+    private static JButton button2;
     private static JLabel ergebnisLabel;
+    private static int raumNr, uhrzeit, wochentag;
 
-    public static void main (String[]args) {
+    public static void main(String[] args) {
 
         IRaumManager raumManager = new RaumManager();   //neuen RaumManager erstellt
 
@@ -62,7 +64,7 @@ public class Main implements ActionListener{
         JPanel panel = new JPanel(new GridLayout(1, 2));
         JFrame frame = new JFrame("Raumbuchungssystem");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(720,800);
+        frame.setSize(720, 800);
         frame.add(panel);
 
         panel.setLayout(null);
@@ -93,7 +95,7 @@ public class Main implements ActionListener{
         raumNrText = new JTextField(20);
         raumNrText.setBounds(100, 80, 165, 25);
         panel.add(raumNrText);
-
+        raumNr = Integer.parseInt(raumNrText.getText());
 
         //Eingabe der Uhrzeit
         uhrzeitLabel = new JLabel("Uhrzeit");
@@ -103,6 +105,7 @@ public class Main implements ActionListener{
         uhrzeitText = new JTextField(20);
         uhrzeitText.setBounds(100, 110, 165, 25);
         panel.add(uhrzeitText);
+        uhrzeit = Integer.parseInt(uhrzeitText.getText());
 
         //Eingabe des Wochentages
         wochentagLabel = new JLabel("Wochentag");
@@ -112,12 +115,19 @@ public class Main implements ActionListener{
         wochentagText = new JTextField(20);
         wochentagText.setBounds(100, 140, 165, 25);
         panel.add(wochentagText);
+        wochentag = Integer.parseInt(wochentagText.getText());
 
         //Anmelden Knopf
         button1 = new JButton("Anmelden");
         button1.setBounds(10, 170, 100, 25);
         panel.add(button1);
         button1.addActionListener(new Main());
+
+        //Abbrechen Knopf
+        button2 = new JButton("Abbrechen");
+        button2.setBounds(120, 170, 100, 25);
+        panel.add(button2);
+        button2.addActionListener(new Main());
 
         //Ergebnis Label
         ergebnisLabel = new JLabel("");
@@ -130,10 +140,12 @@ public class Main implements ActionListener{
     }
 
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
-        ergebnisLabel.setText("Knopf wurde gedrueckt");
+        if (!button1.getModel().isPressed()) {
+            //ergebnisLabel.setText(userText.getText() + ", " + raumNrText.getText());
+            //ergebnisLabel.setText(raumManager.bucheRaum(raumNr, uhrzeit, wochentag, userText.getText()));
+        }
     }
 
 }
