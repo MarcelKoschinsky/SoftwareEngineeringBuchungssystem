@@ -1,7 +1,9 @@
 package src.Raumbuchungssystem.Objekte;
-/*
-@Author Murat Dursun
+
+/**
+ * @Author Murat Dursun
  */
+
 public class User {
 
     private String name = "";

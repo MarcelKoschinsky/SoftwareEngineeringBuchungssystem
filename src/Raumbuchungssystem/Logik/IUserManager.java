@@ -1,7 +1,9 @@
 package src.Raumbuchungssystem.Logik;
-/*
-@Author Murat Dursun
+
+/**
+ * @Author Murat Dursun
  */
+
 public interface IUserManager {
 
 
