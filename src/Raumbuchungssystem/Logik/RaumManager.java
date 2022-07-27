@@ -31,21 +31,22 @@ public class RaumManager implements IRaumManager {
     @Override
     public Set<Raum> listeFreieRaeume(int uhrzeit, int wochentag) {
         Set<Raum> temp = RaumPersistenceDummy.ladeRaeume();
-        Set<Raum> ausgabe = new HashSet<>();
+        Set<Raum> rueckgabe = new HashSet<>();
 
+        //Freie Räume zu Uhrzeit und Wochentag suchen
         for (Raum x : temp) {
             if (x.kalender[uhrzeit][wochentag] == null) {
-                ausgabe.add(x);
+                rueckgabe.add(x);
             }
         }
 
 
-        return ausgabe;
+        return rueckgabe;
     }
 
     /**
      * Ein Raum wird zu einem bestimmten Zeitpunkt gebucht.
-     * Über die Konsole wird dieser Buchungsvorgang bestätigt, oder mit einer Fehlermeldung abgebrochen.
+     * Über die Rückgabe wird dieser Buchungsvorgang bestätigt, oder mit einer Fehlermeldung abgebrochen.
      *
      * @param raumNr    Die Raumnummer
      * @param uhrzeit   Uhrzeit im Format 0-17 (siehe ReadMe)
@@ -75,7 +76,7 @@ public class RaumManager implements IRaumManager {
 
     /**
      * Eine Raumbuchung wird storniert.
-     * Über die Konsole wird diese Stornierung bestätigt, oder mit einer Fehlermeldung abgebrochen.
+     * Über die Rückgabe wird diese Stornierung bestätigt, oder mit einer Fehlermeldung abgebrochen.
      *
      * @param raumNr    Die Raumnummer
      * @param uhrzeit   Uhrzeit im Format 0-17 (siehe ReadMe)
@@ -91,7 +92,7 @@ public class RaumManager implements IRaumManager {
             if (x.getRaumNr() == raumNr) {
                 if (x.kalender[uhrzeit][wochentag] != null) {
                     x.kalender[uhrzeit][wochentag] = null;
-                    rueckgabe="Die Raumbuchung wurde storniert.";
+                    rueckgabe="Die Raumbuchung wurde storniert. Raumnr.: "+raumNr+" Tag: "+wochentag+" Uhrzeit: "+uhrzeit;
                 } else {
                     rueckgabe="Für diesem Raum gibt es zu diesem Zeitpunkt keine Buchung.";
                 }
