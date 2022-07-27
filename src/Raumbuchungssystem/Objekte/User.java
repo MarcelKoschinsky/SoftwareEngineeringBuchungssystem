@@ -1,6 +1,6 @@
 package src.Raumbuchungssystem.Objekte;
-/*
-@Author Murat Dursun
+/**
+ *@author Murat Dursun
  */
 public class User {
 
