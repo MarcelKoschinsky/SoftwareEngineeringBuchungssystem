@@ -77,24 +77,26 @@ public class RaumManager implements IRaumManager {
      * Eine Raumbuchung wird storniert.
      * Über die Konsole wird diese Stornierung bestätigt, oder mit einer Fehlermeldung abgebrochen.
      *
-     * @param raumNr Die Raumnummer
+     * @param raumNr    Die Raumnummer
      * @param uhrzeit   Uhrzeit im Format 0-17 (siehe ReadMe)
      * @param wochentag Wochentag im Format 0-6 (siehe ReadMe)
+     * @return Eine Bestätigung oder Fehlermeldung
      */
     @Override
-    public void storniereRaum(int raumNr, int uhrzeit, int wochentag) {
+    public String storniereRaum(int raumNr, int uhrzeit, int wochentag) {
         Set<Raum> temp = RaumPersistenceDummy.ladeRaeume();
+        String rueckgabe="";
 
         for (Raum x : temp) {
             if (x.getRaumNr() == raumNr) {
                 if (x.kalender[uhrzeit][wochentag] != null) {
                     x.kalender[uhrzeit][wochentag] = null;
-                    System.out.println("Die Raumbuchung wurde storniert.");
+                    rueckgabe="Die Raumbuchung wurde storniert.";
                 } else {
-                    System.out.println("Für diesem Raum gibt es zu diesem Zeitpunkt keine Buchung.");
+                    rueckgabe="Für diesem Raum gibt es zu diesem Zeitpunkt keine Buchung.";
                 }
             }
         }
-
+        return rueckgabe;
     }
 }
