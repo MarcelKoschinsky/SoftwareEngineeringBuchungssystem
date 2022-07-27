@@ -1,9 +1,9 @@
 package src.Raumbuchungssystem.GUI;
 
-/*
-UI des Raumbuchungssystems
-Nimmt Nutzereingaben und gibt sie an bucheRaum weiter
-@Author Murat Dursun
+/**
+ * UI des Raumbuchungssystems
+ * Nimmt Nutzereingaben und gibt sie an bucheRaum weiter
+ * @author Murat Dursun
  */
 
 import src.Raumbuchungssystem.Logik.IRaumManager;
@@ -77,7 +77,7 @@ public class Main implements ActionListener {
         raumNrText = new JTextField(20);
         raumNrText.setBounds(100, 80, 165, 25);
         panel.add(raumNrText);
-        //raumNr = Integer.parseInt(raumNrText.getText());
+
 
         //Eingabe der Uhrzeit
         uhrzeitLabel = new JLabel("Uhrzeit");
@@ -87,7 +87,7 @@ public class Main implements ActionListener {
         uhrzeitText = new JTextField(20);
         uhrzeitText.setBounds(100, 110, 165, 25);
         panel.add(uhrzeitText);
-        //uhrzeit = Integer.parseInt(uhrzeitText.getText());
+
 
         //Eingabe des Wochentages
         wochentagLabel = new JLabel("Wochentag");
@@ -97,7 +97,7 @@ public class Main implements ActionListener {
         wochentagText = new JTextField(20);
         wochentagText.setBounds(100, 140, 165, 25);
         panel.add(wochentagText);
-        //wochentag = Integer.parseInt(wochentagText.getText());
+
 
         //Anmelden Knopf
         button1 = new JButton("Anmelden");
@@ -113,7 +113,7 @@ public class Main implements ActionListener {
 
         //Ergebnis Label
         ergebnisLabel = new JLabel("");
-        ergebnisLabel.setBounds(10, 210, 200, 25);
+        ergebnisLabel.setBounds(10, 210, 500, 25);
         panel.add(ergebnisLabel);
 
         frame.setVisible(true);
@@ -122,9 +122,14 @@ public class Main implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button1) {
+
+            //Die Parse-Operationen mussten hierher verschoben werden, weil es sonst NullPointerExceptions gab
+            raumNr = Integer.parseInt(raumNrText.getText());
+            uhrzeit = Integer.parseInt(uhrzeitText.getText());
+            wochentag = Integer.parseInt(wochentagText.getText());
+
             if (passwortText.getText().equals("1234")) {
-                //ergebnisLabel.setText(raumManager.bucheRaum(raumNr, uhrzeit, wochentag, userText.getText()));
-                ergebnisLabel.setText("Knopf funkt!");
+                ergebnisLabel.setText(raumManager.bucheRaum(raumNr, uhrzeit, wochentag, userText.getText()));
             }else{
                 ergebnisLabel.setText("Passwort inkorrekt");
             }
