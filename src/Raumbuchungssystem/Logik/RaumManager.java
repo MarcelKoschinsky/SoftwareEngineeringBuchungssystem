@@ -51,21 +51,26 @@ public class RaumManager implements IRaumManager {
      * @param uhrzeit   Uhrzeit im Format 0-17 (siehe ReadMe)
      * @param wochentag Wochentag im Format 0-6 (siehe ReadMe)
      * @param name      Name der buchenden Person
+     * @return Eine Bestätigung oder Fehlermeldung
      */
     @Override
-    public void bucheRaum(int raumNr, int uhrzeit, int wochentag, String name) {
+    public String bucheRaum(int raumNr, int uhrzeit, int wochentag, String name) {
         Set<Raum> temp = RaumPersistenceDummy.ladeRaeume();
+        String rueckgabe="";
 
         for (Raum x : temp) {
             if (x.getRaumNr() == raumNr) {
                 if (x.kalender[uhrzeit][wochentag] == null) {
                     x.setBuchung(uhrzeit, wochentag, name);
-                    System.out.println("Der gewünschte Termin wurde von dir gebucht.\n Raum:"+x.getRaumNr()+" Wochentag: "+wochentag+" Uhrzeit: "+uhrzeit);
+                    rueckgabe="Der gewünschte Termin wurde von dir gebucht.\n Raum:"+x.getRaumNr()+" Wochentag: "+wochentag+" Uhrzeit: "+uhrzeit;
                 } else {
-                    System.out.println("Der gewünschte Termin ist bereits vergeben.");
+                    rueckgabe="Der gewünschte Termin ist bereits vergeben.";
                 }
             }
         }
+
+        //RaumPersistenceDummy.speichereRaeume(temp)
+        return rueckgabe;
     }
 
     /**

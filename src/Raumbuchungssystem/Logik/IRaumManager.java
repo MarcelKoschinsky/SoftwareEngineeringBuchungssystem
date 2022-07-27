@@ -15,7 +15,7 @@ public interface IRaumManager {
 
     Set<Raum> listeFreieRaeume(int uhrzeit, int wochentag);
 
-    void bucheRaum(int raumNr, int uhrzeit, int wochentag, String name);
+    String bucheRaum(int raumNr, int uhrzeit, int wochentag, String name);
 
     void storniereRaum(int raumNr, int uhrzeit, int wochentag);
 }
