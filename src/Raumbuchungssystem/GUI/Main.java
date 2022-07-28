@@ -1,11 +1,5 @@
 package src.Raumbuchungssystem.GUI;
 
-/**
- * UI des Raumbuchungssystems
- * Nimmt Nutzereingaben und gibt sie an bucheRaum weiter
- * @author Murat Dursun
- */
-
 import src.Raumbuchungssystem.Logik.IRaumManager;
 import src.Raumbuchungssystem.Logik.RaumManager;
 import src.Raumbuchungssystem.Objekte.Raum;
@@ -13,7 +7,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Set;
-
+/**
+ * UI des Raumbuchungssystems
+ * Nimmt Nutzereingaben und gibt sie an bucheRaum weiter
+ * @author Murat Dursun
+ */
 public class Main implements ActionListener {
 
     IRaumManager raumManager = new RaumManager();   //neuen RaumManager erstellt
