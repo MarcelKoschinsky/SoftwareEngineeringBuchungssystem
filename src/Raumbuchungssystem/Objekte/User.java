@@ -1,13 +1,40 @@
 package src.Raumbuchungssystem.Objekte;
 /**
- *@author Murat Dursun
+ *@author Murat Dursun, Janik Lüttringhaus
  */
 public class User {
 
-    private String name = "";
+    private String name,email;
+    private int id;
+    private String passwort; //Sollte in der Zukunft gegen etwas Sichereres getauscht werden
 
-    private int id = 0;
+    public User (String name, String passwort, int id) {
+        setName(name);
+        setPasswort(passwort);
+        setId(id);
+    }
 
-    private String email = "";
+    public String getPasswort() {
+        return passwort;
+    }
 
+    public void setPasswort(String passwort) {
+        this.passwort = passwort;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

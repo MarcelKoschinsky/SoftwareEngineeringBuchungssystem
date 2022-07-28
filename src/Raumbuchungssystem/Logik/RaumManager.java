@@ -14,7 +14,7 @@ import java.util.Set;
  */
 public class RaumManager implements IRaumManager {
 
-    IRaumPersistence raumPersistence=new RaumPersistenceDummy();  //Dummy muss noch gegen echte Persistance getauscht werden
+    IRaumPersistence raumPersistence=new RaumPersistenceDummy();  //Dummy muss noch gegen echte Persistence getauscht werden
 
     /**
      * @return Alle Räume
@@ -42,7 +42,6 @@ public class RaumManager implements IRaumManager {
                 rueckgabe.add(x);
             }
         }
-
 
         return rueckgabe;
     }

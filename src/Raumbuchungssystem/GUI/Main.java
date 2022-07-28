@@ -32,6 +32,10 @@ public class Main implements ActionListener {
     private static int raumNr, uhrzeit, wochentag;
     private static String passwort;
 
+
+    //Storniere Knopf – von Janik
+    private static JButton button3;
+
     public static void main(String[] args) {
 
         IRaumManager raumManager = new RaumManager();   //neuen RaumManager erstellt
@@ -98,16 +102,22 @@ public class Main implements ActionListener {
 
 
         //Anmelden Knopf
-        button1 = new JButton("Anmelden");
+        button1 = new JButton("Buchen");
         button1.setBounds(10, 170, 100, 25);
         panel.add(button1);
         button1.addActionListener(new Main());
 
         //Abbrechen Knopf
         button2 = new JButton("Abbrechen");
-        button2.setBounds(120, 170, 100, 25);
+        button2.setBounds(230, 170, 100, 25);
         panel.add(button2);
         button2.addActionListener(e -> {frame.dispose();});
+
+        //Stornieren Knopf – von Janik
+        button3 = new JButton("Stornieren");
+        button3.setBounds(120, 170, 100, 25);
+        panel.add(button3);
+        button3.addActionListener(new Main());
 
         //Ergebnis Label
         ergebnisLabel = new JLabel("");
@@ -119,6 +129,7 @@ public class Main implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //Funktion des "Anmelden"-Knopfes
         if (e.getSource() == button1) {
 
             //Die Parse-Operationen mussten hierher verschoben werden, weil es sonst NullPointerExceptions gab.   \Janik
@@ -128,6 +139,19 @@ public class Main implements ActionListener {
 
             if (passwortText.getText().equals("1234")) {
                 ergebnisLabel.setText(raumManager.bucheRaum(raumNr, uhrzeit, wochentag, userText.getText()));
+            }else{
+                ergebnisLabel.setText("Passwort inkorrekt");
+            }
+        }
+
+        //Funktion des "Stornieren"-Knopfes
+        if (e.getSource() == button3) {
+            raumNr = Integer.parseInt(raumNrText.getText());
+            uhrzeit = Integer.parseInt(uhrzeitText.getText());
+            wochentag = Integer.parseInt(wochentagText.getText());
+
+            if (passwortText.getText().equals("1234")) {
+                ergebnisLabel.setText(raumManager.storniereRaum(raumNr, uhrzeit, wochentag));
             }else{
                 ergebnisLabel.setText("Passwort inkorrekt");
             }

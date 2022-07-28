@@ -3,9 +3,12 @@ package src.Raumbuchungssystem.Datenbank;
 import src.Raumbuchungssystem.Objekte.Raum;
 import java.util.Set;
 
+/**
+ * Interface für die VPIS Synchronisierung
+ *
+ * @author Marcel
+ */
 
-//@author Marcel
-// Interface für die VPIS Synchronisierung
 public interface IVPISSynch {
 
     //system.out.println.(testeUebergabe);
