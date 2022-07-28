@@ -1,5 +1,6 @@
 package src.Raumbuchungssystem.Logik;
 
+import src.Raumbuchungssystem.Datenbank.IRaumPersistence;
 import src.Raumbuchungssystem.Datenbank.RaumPersistenceDummy;
 import src.Raumbuchungssystem.Objekte.Raum;
 
@@ -13,12 +14,14 @@ import java.util.Set;
  */
 public class RaumManager implements IRaumManager {
 
+    IRaumPersistence raumPersistence=new RaumPersistenceDummy();  //Dummy muss noch gegen echte Persistance getauscht werden
+
     /**
      * @return Alle Räume
      */
     @Override
     public Set<Raum> listeAlleRaeume() {
-        return RaumPersistenceDummy.ladeRaeume();
+        return raumPersistence.ladeRaeume();
     }
 
     /**
@@ -30,7 +33,7 @@ public class RaumManager implements IRaumManager {
      */
     @Override
     public Set<Raum> listeFreieRaeume(int uhrzeit, int wochentag) {
-        Set<Raum> temp = RaumPersistenceDummy.ladeRaeume();
+        Set<Raum> temp = raumPersistence.ladeRaeume();
         Set<Raum> rueckgabe = new HashSet<>();
 
         //Freie Räume zu Uhrzeit und Wochentag suchen
@@ -56,21 +59,25 @@ public class RaumManager implements IRaumManager {
      */
     @Override
     public String bucheRaum(int raumNr, int uhrzeit, int wochentag, String name) {
-        Set<Raum> temp = RaumPersistenceDummy.ladeRaeume();
+        Set<Raum> temp = raumPersistence.ladeRaeume();
         String rueckgabe="";
 
         for (Raum x : temp) {
             if (x.getRaumNr() == raumNr) {
                 if (x.kalender[uhrzeit][wochentag] == null) {
                     x.setBuchung(uhrzeit, wochentag, name);
-                    rueckgabe="Der gewünschte Termin wurde von dir gebucht.\n Raum:"+x.getRaumNr()+" Wochentag: "+wochentag+" Uhrzeit: "+uhrzeit;
+                    rueckgabe="Gebucht: Raum: "+x.getRaumNr()+", Art: "+x.getRaumArt()+", Wochentag: "+wochentag+", Uhrzeit: "+uhrzeit;
                 } else {
                     rueckgabe="Der gewünschte Termin ist bereits vergeben.";
                 }
             }
         }
 
-        //RaumPersistenceDummy.speichereRaeume(temp)
+        if (rueckgabe.equals("")) {
+            rueckgabe="Der gewünschte Raum ("+raumNr+") existiert nicht.";
+        }
+
+        raumPersistence.speichereRaeume(temp);
         return rueckgabe;
     }
 
@@ -85,19 +92,25 @@ public class RaumManager implements IRaumManager {
      */
     @Override
     public String storniereRaum(int raumNr, int uhrzeit, int wochentag) {
-        Set<Raum> temp = RaumPersistenceDummy.ladeRaeume();
+        Set<Raum> temp = raumPersistence.ladeRaeume();
         String rueckgabe="";
 
         for (Raum x : temp) {
             if (x.getRaumNr() == raumNr) {
                 if (x.kalender[uhrzeit][wochentag] != null) {
                     x.kalender[uhrzeit][wochentag] = null;
-                    rueckgabe="Die Raumbuchung wurde storniert. Raumnr.: "+raumNr+" Tag: "+wochentag+" Uhrzeit: "+uhrzeit;
+                    rueckgabe= "Raumbuchung storniert. Raumnr.: "+raumNr+" Tag: "+wochentag+" Uhrzeit: "+uhrzeit;
                 } else {
-                    rueckgabe="Für diesem Raum gibt es zu diesem Zeitpunkt keine Buchung.";
+                    rueckgabe="Keine Buchung für Raum "+raumNr+" zum Zeitpunkt "+uhrzeit+" am Tag "+wochentag;
                 }
             }
         }
+
+        if (rueckgabe.equals("")) {
+            rueckgabe="Der gewünschte Raum ("+raumNr+") existiert nicht.";
+        }
+
+        raumPersistence.speichereRaeume(temp);
         return rueckgabe;
     }
 }

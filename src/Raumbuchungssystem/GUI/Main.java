@@ -123,7 +123,7 @@ public class Main implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button1) {
 
-            //Die Parse-Operationen mussten hierher verschoben werden, weil es sonst NullPointerExceptions gab
+            //Die Parse-Operationen mussten hierher verschoben werden, weil es sonst NullPointerExceptions gab.   \Janik
             raumNr = Integer.parseInt(raumNrText.getText());
             uhrzeit = Integer.parseInt(uhrzeitText.getText());
             wochentag = Integer.parseInt(wochentagText.getText());

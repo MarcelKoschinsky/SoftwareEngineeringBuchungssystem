@@ -10,27 +10,44 @@ import java.util.Set;
  *
  * @author Janik Lüttringhaus
  */
-public class RaumPersistenceDummy {
+public class RaumPersistenceDummy implements IRaumPersistence {
 
-    //static Set<Raum> raumset = new HashSet<>();
+    static Set<Raum> raumset = new HashSet<>();
 
     /**
-     * Generiert 3 Räume und gibt diese als HashSet zurück
-     *
-     * @return 3 Platzhalter-Räume
+     * Der Konstruktor.
+     * Generiert 5 Räume und fügt diese dem HashSet hinzu
      */
-    public static Set<Raum> ladeRaeume() {
-        Set<Raum> raumset = new HashSet<>();
+    public RaumPersistenceDummy() {
+        erstelleRaum(101, "Seminarraum");
+        erstelleRaum(102, "Seminarraum");
+        erstelleRaum(103, "Seminarraum");
+        erstelleRaum(104, "Seminarraum");
+        erstelleRaum(105, "Labor");
+    }
 
-        Raum raum101 = new Raum(101, "Seminarraum");
-        Raum raum102 = new Raum(102, "Seminarraum");
-        Raum raum103 = new Raum(103, "Seminarraum");
-        raum103.setBuchung(0, 0, "Janik");
+    /**
+     * Erstellt einen neuen Raum und fügt diesen dem HashSet des Dummys hinzu.
+     * @param raumNr Raumnummer
+     * @param raumArt Art des Raumes
+     */
+    public void erstelleRaum(int raumNr, String raumArt) {
+            raumset.add(new Raum(raumNr, raumArt));
+    }
 
-        raumset.add(raum101);
-        raumset.add(raum102);
-        raumset.add(raum103);
-
+    /**
+     * @return HashSet mit allen Räumen
+     */
+    @Override
+    public Set<Raum> ladeRaeume() {
         return raumset;
+    }
+
+    /**
+     * @param raeume Das überarbeitete HashSet mit allen Räumen
+     */
+    @Override
+    public  void speichereRaeume(Set<Raum> raeume) {
+        raumset=raeume;
     }
 }
