@@ -31,8 +31,10 @@ public class Raum {
      * @param raumArt Art des Raumes
      */
     public Raum (int raumNr, String raumArt) {
-        this.raumNr=raumNr;
-        this.raumArt=raumArt;
+        //this.raumNr=raumNr;
+        setRaumNr(raumNr);
+        //this.raumArt=raumArt;
+        setRaumArt(raumArt);
     }
 
     public void setRaumNr(int raumNr) { this.raumNr = raumNr; }
@@ -73,6 +75,15 @@ public class Raum {
         } else {
             return "Zu dieser Zeit gibt es noch keine Buchung";
         }
+    }
+
+
+    /**
+     * @return Raumnr & Raumart
+     */
+    @Override
+    public String toString() {
+        return "Raum "+raumNr+": "+raumArt;
     }
 }
 
