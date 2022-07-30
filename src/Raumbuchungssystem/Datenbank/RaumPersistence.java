@@ -11,6 +11,11 @@ import java.util.Set;
 
 import src.Raumbuchungssystem.Objekte.Raum;
 
+/**
+ * Eine Persistenz für die Räume
+ * @author Marcel
+ */
+
 public class RaumPersistence implements IRaumPersistence{
 
     private final String file;
