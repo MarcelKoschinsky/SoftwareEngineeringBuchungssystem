@@ -31,7 +31,7 @@ public class Raum {
      * @param raumArt Art des Raumes
      */
     public Raum (int raumNr, String raumArt) {
-        //this.raumNr=raumNr;
+        //this.raumNr=raumNr;  //@Marcel diese Zeile von Dir würde mir mehr passen oder? Unten ebenso
         setRaumNr(raumNr);
         //this.raumArt=raumArt;
         setRaumArt(raumArt);
