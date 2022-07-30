@@ -9,7 +9,7 @@ public class UserPersistence implements IUserPersistence {
      * @return
      */
     @Override
-    public Set<User> ladeUser() {
+    public UserPersistenceNeu.set<User> ladeUser() {
         return null;
     }
 

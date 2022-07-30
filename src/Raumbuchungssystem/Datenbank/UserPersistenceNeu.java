@@ -4,9 +4,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Set;
+
 import src.Raumbuchungssystem.Objekte.User;
 
 /**
@@ -20,20 +19,24 @@ public abstract class UserPersistenceNeu implements IUserPersistence{
     public UserPersistenceNeu() {
         this("users.txt");
     }
-    
+
+    public UserPersistenceNeu(String s) {
+
+    }
+
     public void UserPersistence(String file) {
         this.file = file;
     }
     
-    public Set<User> ladeUser() {
+    public set<User> ladeUser() throws Throwable {
         Throwable var1 = null;
         try {
             var1 = null;
             Object var2 = null;
 
-            boolean reader;
+            boolean reader = true;
             try {
-                set<User> set = new HashSet();
+                set<User> set = new set<User>();
 
                 String line;
                 while ((line = reader.readLine()) != null && !line.isBlank()) {
@@ -43,7 +46,7 @@ public abstract class UserPersistenceNeu implements IUserPersistence{
                     String email = split[2];
                     set.add(new User(name, id, email));
                 }
-                HashSet var10000 = set;
+                UserPersistenceNeu.set<User> var10000 = set;
                 return var10000;
             } finally {
                 if (reader != null) {
@@ -52,16 +55,16 @@ public abstract class UserPersistenceNeu implements IUserPersistence{
             }
         } catch (Throwable var17) {
             if (var1 == null) {
-                var1 == var17;
+                boolean b = var1 == var17;
             } else if (var1 != var17) {
                 var17.addSuppressed(var17);
             }
 
             throw var1;
+        } catch (IOException var18) {
+            var18.printStackTrace();
+            return null;
         }
-    } catch (IOException var18) {
-        var18.printStackTrace();
-        return null;
     }
 
     public void speichereUser(set<User> users) {
@@ -112,7 +115,17 @@ public abstract class UserPersistenceNeu implements IUserPersistence{
             }
         return file;
         }
+
+    private class set<T> {
+        public void add(T user) {
+
+        }
+
+        public Iterator iterator() {
+            return null;
+        }
     }
+}
 
 
      

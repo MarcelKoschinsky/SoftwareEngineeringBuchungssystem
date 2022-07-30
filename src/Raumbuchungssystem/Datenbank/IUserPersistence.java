@@ -3,8 +3,6 @@ package src.Raumbuchungssystem.Datenbank;
 import src.Raumbuchungssystem.Objekte.User;
 
 import java.util.Set;
-import src.Raumbuchungssystem.Objekte.User;
-
 
 
 /**
@@ -13,7 +11,7 @@ import src.Raumbuchungssystem.Objekte.User;
  * @author Marcel Koschinsky
  */
 public interface IUserPersistence {
-    Set<User> ladeUser();
+    UserPersistenceNeu.set<User> ladeUser() throws Throwable;
     void speichereUser(Set<User> users);
 
 }

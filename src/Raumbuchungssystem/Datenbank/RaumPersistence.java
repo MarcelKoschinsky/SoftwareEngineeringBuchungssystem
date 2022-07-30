@@ -16,7 +16,7 @@ import src.Raumbuchungssystem.Objekte.Raum;
  * @author Marcel
  */
 
-public class RaumPersistence implements IRaumPersistence{
+public abstract class RaumPersistence implements IRaumPersistence{
 
     private final String file;
 
@@ -56,7 +56,7 @@ public class RaumPersistence implements IRaumPersistence{
 
         //Diese Zeilen enthalten alle Buchungen
         //Format: Name; Uhrzeit; Wochentag
-        while ((line = reader.readLine())) != null && !line.isBlank()) {
+        while ((line = reader.readLine()) != null && !line.isBlank()) {
              //Fängt Zeile mit "-" an, bedeutet das, dass der Eintrag beendet ist
             if (line.startsWith("-"))
                 break;
