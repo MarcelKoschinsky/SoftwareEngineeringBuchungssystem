@@ -44,7 +44,7 @@ public class RaumPersistence implements IRaumPersistence{
         //Versuche einen Raum zu laden
         //wenn die Zeile leer ist, gibt es keine weiteren Räume
         String line = reader.readLine();
-        if(line.isBlank())
+        if(line == null)
             return null;
 
         //Lade RaumNr und RaumArt
