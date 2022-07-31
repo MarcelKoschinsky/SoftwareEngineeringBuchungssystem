@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.Set;
 
 import src.Raumbuchungssystem.Objekte.User;
 
@@ -28,7 +29,7 @@ public abstract class UserPersistenceNeu implements IUserPersistence{
         this.file = file;
     }
     
-    public set<User> ladeUser() throws Throwable {
+    public Set<User> ladeUser() throws Throwable {
         Throwable var1 = null;
         try {
             var1 = null;
@@ -47,9 +48,9 @@ public abstract class UserPersistenceNeu implements IUserPersistence{
                     set.add(new User(name, id, email));
                 }
                 UserPersistenceNeu.set<User> var10000 = set;
-                return var10000;
+                return (Set<User>) var10000;
             } finally {
-                if (reader != null) {
+                if (reader != true) {
                     reader.close();
                 }
             }

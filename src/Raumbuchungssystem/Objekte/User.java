@@ -8,7 +8,7 @@ public class User {
     private int id;
     private String passwort; //Sollte in der Zukunft gegen etwas Sichereres getauscht werden
 
-    public User (String name, String passwort, int id) {
+    public User (String name, int passwort, String id) {
         setName(name);
         setPasswort(passwort);
         setId(id);
