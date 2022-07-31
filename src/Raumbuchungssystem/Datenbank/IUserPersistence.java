@@ -11,7 +11,7 @@ import java.util.Set;
  * @author Marcel Koschinsky
  */
 public interface IUserPersistence {
-    UserPersistenceNeu.set<User> ladeUser() throws Throwable;
+    Set<User> ladeUser() throws Throwable;
     void speichereUser(Set<User> users);
 
 }

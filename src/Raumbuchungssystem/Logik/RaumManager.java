@@ -2,6 +2,7 @@ package src.Raumbuchungssystem.Logik;
 
 import src.Raumbuchungssystem.Datenbank.IRaumPersistence;
 import src.Raumbuchungssystem.Datenbank.RaumPersistenceDummy;
+import src.Raumbuchungssystem.Datenbank.RaumPersistence;
 import src.Raumbuchungssystem.Objekte.Raum;
 
 import java.util.HashSet;
@@ -14,7 +15,7 @@ import java.util.Set;
  */
 public class RaumManager implements IRaumManager {
 
-    IRaumPersistence raumPersistence=new RaumPersistenceDummy();  //Dummy muss noch gegen echte Persistence getauscht werden
+    IRaumPersistence raumPersistence=new RaumPersistenceDummy();
 
     /**
      * @return Alle Räume
@@ -59,6 +60,7 @@ public class RaumManager implements IRaumManager {
     @Override
     public String bucheRaum(int raumNr, int uhrzeit, int wochentag, String name) {
         Set<Raum> temp = raumPersistence.ladeRaeume();
+
         String rueckgabe="";
 
         for (Raum x : temp) {

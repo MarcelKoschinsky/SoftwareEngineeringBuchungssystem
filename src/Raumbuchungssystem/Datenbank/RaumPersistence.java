@@ -16,7 +16,7 @@ import src.Raumbuchungssystem.Objekte.Raum;
  * @author Marcel
  */
 
-public abstract class RaumPersistence implements IRaumPersistence{
+public class RaumPersistence implements IRaumPersistence{
 
     private final String file;
 
@@ -29,7 +29,7 @@ public abstract class RaumPersistence implements IRaumPersistence{
     @Override
     public Set<Raum> ladeRaeume() {
         try (BufferedReader reader = new BufferedReader(new FileReader(this.openFile()))) {
-            Set<Raum> set = new HashSet<Raum>();
+            Set<Raum> set = new HashSet<>();
             Raum raum;
             while((raum = this.ladeRaum(reader)) != null)
                 set.add(raum);
@@ -75,7 +75,7 @@ public abstract class RaumPersistence implements IRaumPersistence{
     public void speichereRaeume(Set<Raum> raeume) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.openFile()))){
             for (Raum raum : raeume) {
-                this.speichereRaeume(raeume, writer);
+                this.speichereRaum(raum, writer);
             }
         } catch (IOException e) {
             e.printStackTrace();

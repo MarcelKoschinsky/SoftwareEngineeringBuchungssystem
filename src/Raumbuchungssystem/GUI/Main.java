@@ -132,7 +132,6 @@ public class Main implements ActionListener {
         //Funktion des "Anmelden"-Knopfes
         if (e.getSource() == button1) {
 
-            //Die Parse-Operationen mussten hierher verschoben werden, weil es sonst NullPointerExceptions gab.   \Janik
             raumNr = Integer.parseInt(raumNrText.getText());
             uhrzeit = Integer.parseInt(uhrzeitText.getText());
             wochentag = Integer.parseInt(wochentagText.getText());
