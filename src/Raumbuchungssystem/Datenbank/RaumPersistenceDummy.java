@@ -23,7 +23,8 @@ public class RaumPersistenceDummy implements IRaumPersistence {
         erstelleRaum(102, "Seminarraum");
         erstelleRaum(103, "Seminarraum");
         erstelleRaum(104, "Seminarraum");
-        erstelleRaum(105, "Labor");
+        erstelleRaum(105, "Seminarraum");
+        erstelleRaum(110, "Labor");
     }
 
     /**

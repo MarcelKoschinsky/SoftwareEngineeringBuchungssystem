@@ -113,7 +113,7 @@ public class Main implements ActionListener {
         panel.add(button2);
         button2.addActionListener(e -> {frame.dispose();});
 
-        //Stornieren Knopf – von Janik
+        //Stornieren Knopf
         button3 = new JButton("Stornieren");
         button3.setBounds(120, 170, 100, 25);
         panel.add(button3);

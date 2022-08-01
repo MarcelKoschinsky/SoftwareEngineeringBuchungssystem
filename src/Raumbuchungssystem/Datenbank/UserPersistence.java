@@ -1,20 +1,11 @@
 package src.Raumbuchungssystem.Datenbank;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.Set;
-
-import src.Raumbuchungssystem.Objekte.User;
-
 /**
- * Eine Persistenz für den/die User!
+ * Eine Persistenz für die User!
  * @author Marcel Koschinsky
  */
-
-public abstract class UserPersistenceNeu implements IUserPersistence{
+/*
+public abstract class UserPersistence implements IUserPersistence{
     private String file;
     
     public UserPersistenceNeu() {
@@ -22,7 +13,7 @@ public abstract class UserPersistenceNeu implements IUserPersistence{
     }
 
     public UserPersistenceNeu(String s) {
-
+        file=s;
     }
 
     public void UserPersistence(String file) {
@@ -127,6 +118,4 @@ public abstract class UserPersistenceNeu implements IUserPersistence{
         }
     }
 }
-
-
-     
+*/

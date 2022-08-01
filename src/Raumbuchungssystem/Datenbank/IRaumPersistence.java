@@ -12,6 +12,6 @@ public interface IRaumPersistence {
     Set<Raum> ladeRaeume();
     void speichereRaeume(Set<Raum> raeume);
 
-    void speichereRaeume(Set<Raum> raeume, BufferedWriter writer);
+    /*void speichereRaeume(Set<Raum> raeume, BufferedWriter writer);*/
 
 }

@@ -18,5 +18,7 @@ public interface IRaumManager {
     String bucheRaum(int raumNr, int uhrzeit, int wochentag, String name);
 
     String storniereRaum(int raumNr, int uhrzeit, int wochentag);
+
+    Raum getRaum(int raumNr);
 }
 

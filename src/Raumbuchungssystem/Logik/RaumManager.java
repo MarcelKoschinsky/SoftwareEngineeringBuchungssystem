@@ -15,7 +15,8 @@ import java.util.Set;
  */
 public class RaumManager implements IRaumManager {
 
-    IRaumPersistence raumPersistence=new RaumPersistenceDummy();
+    //IRaumPersistence raumPersistence=new RaumPersistence(); //Nach Bedarf auskommentieren. Echte Persistence ist Stand 1. August 18:47 unzuverlässig
+    IRaumPersistence raumPersistence=new RaumPersistenceDummy(); //Nach Bedarf auskommentieren. Echte Persistence ist Stand 1. August 18:47 unzuverlässig
 
     /**
      * @return Alle Räume
@@ -113,5 +114,23 @@ public class RaumManager implements IRaumManager {
 
         raumPersistence.speichereRaeume(temp);
         return rueckgabe;
+    }
+
+    /**
+     *
+     * @param raumNr Die gewünschte Raumnummer
+     * @return Der Raum mit der gewünschten Raumnummer; Null, wenn der Raum nicht existiert.
+     */
+    @Override
+    public Raum getRaum(int raumNr) {
+        Set<Raum> temp = raumPersistence.ladeRaeume();
+
+        for (Raum x : temp) {
+            if (x.getRaumNr() == raumNr) {
+                return x; //Raum gefunden
+            }
+        }
+
+        return null; //Raum nicht gefunden
     }
 }
