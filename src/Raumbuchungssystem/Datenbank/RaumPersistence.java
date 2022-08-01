@@ -59,7 +59,7 @@ public class RaumPersistence implements IRaumPersistence{
         while ((line = reader.readLine()) != null && !line.isBlank()) {
              //Fängt Zeile mit "-" an, bedeutet das, dass der Eintrag beendet ist
             if (line.startsWith("-"))
-                break;
+                {break;}
 
             split = line.split(";");
             String name = split[0];
