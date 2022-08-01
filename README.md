@@ -1,7 +1,16 @@
 # SoftwareEngineeringBuchungssystem
-Ein Raumbuchungssystem, bei dem Sie freie Räume buchen können. Das gleiche System können Sie natürlich auch nutzen, wenn Sie einen Platz für das Lernen, für die Abschlussklausur oder zur Vorlesung suchen.
+![GUI](https://user-images.githubusercontent.com/95693312/182212209-083fcf57-a596-4f56-8519-e67c11142059.jpg) <br>
+In seinem derzeitigen Zustand ist das System in der Lage Räume zu bestimmten Zeiten, an bestimmten Tagen zu buchen und zu stornieren. Der Eingabe von Zeiträumen liegt  die untenstehende Tabelle zugrunde, wobei der erste Parameter einen halbstündigen Time-Slot und der zweite Parameter einen Wochentag darstellt.
 
-Der Eingabe von Zeiträumen liegt derzeit die folgende Tabelle zugrunde, wobei der erste Parameter einen halbstündigen Time-Slot und der zweite Parameter einen Wochentag darstellt.
+Zur Verfügung stehen Räume mit den Nummern 101-120 (bzw. 101-105 + 110 mit RaumPersistenceDummy).
+Um einen Raum zu buchen muss ein Name gewählt werden, der in der Buchung hinterlegt werden soll. Als Passwort dient der Platzhalter „1234“.
+Anschließend wird eine Raumnummer angegeben und ein Zeitraum gewählt.
+
+Mit dem Klicken des Buchen-Knopfes wird die Buchung ausgeführt. Der Versuch eine weitere Buchung zu diesem Zeitpunkt zu tätigen führt zu einer Fehlermeldung.
+Der Stornieren-Knopf funktionert genauso.
+
+Zum Beenden des Programmes kann der Abbrechen-Knopf gedrückt werden.
+
 
 |   |           | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
 |---|-----------|---|---|---|---|---|---|---|

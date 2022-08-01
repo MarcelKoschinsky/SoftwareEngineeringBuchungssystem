@@ -9,10 +9,10 @@ import java.util.Set;
 
 /**
  * Generiert Räume für die RaumPersistence für das erstmalige Setup. Ist bereits eine raeume.txt mit Einträgen vorhanden kann diese Klasse ignoriert werden.
+ * Kann außerdem verwendet werden, um ein bestehendes Datenset der Persistence zu überschreiben
  * @author Janik Lüttringhaus
  */
 public class RaumGenerator {
-    RaumManager raumManager=new RaumManager();
     static RaumPersistence raumPersistence=new RaumPersistence();
 
     static Set<Raum> generierteRaeume = new HashSet<>();
